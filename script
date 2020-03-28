@@ -1,11 +1,14 @@
 # Cria uma instância
 gcloud compute instances create my-app-instance --image-family=debian-9  --image-project=debian-cloud  --machine-type=f1-micro  --scopes userinfo-email,cloud-platform  --metadata-from-file startup-script=./startup-script.sh  --zone us-central1-f  --tags http-server --hostname=api2.klawdyo.com
 
-
+# Cria um firewall 
 gcloud compute firewall-rules create default-allow-http-80 --allow tcp:80 --source-ranges 0.0.0.0/0 --target-tags http-server --description "Allow port 80 access to http-server"
 
 # Pegar o nome da instancia
 gcloud compute instances describe my-app-instance  --format='get(hostname)'
 
-# Dar um script de inicialização ao um arquivo que já existe
+# Atualizar o script de inicialização
 gcloud compute instances add-metadata my-app-instance --metadata-from-file startup-script=./startup-script.sh
+
+# Rodar novamente o script de inicialização
+sudo google_metadata_script_runner --script-type startup --debug
