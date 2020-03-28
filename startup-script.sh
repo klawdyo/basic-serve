@@ -2,6 +2,7 @@ set -v
 
 # Talk to the metadata server to get the project id
 PROJECTID=$(curl -s "http://metadata.google.internal/computeMetadata/v1/project/project-id" -H "Metadata-Flavor: Google")
+# Configura o nome do repositório do google
 REPOSITORY="[YOUR-REPOSITORY]"
 
 # Install logging monitor. The monitor will automatically pick up logs sent to
@@ -24,7 +25,7 @@ ln -s /opt/nodejs/bin/npm /usr/bin/npm
 export HOME=/root
 git config --global credential.helper gcloud.sh
 # git clone https://source.developers.google.com/p/${PROJECTID}/r/${REPOSITORY} /opt/app
-git clone https://github.com/klawdyo/node-server.git
+git clone https://github.com/klawdyo/basic-server.git  /opt/app
 
 
 # Install app dependencies
