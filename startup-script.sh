@@ -25,11 +25,11 @@ ln -s /opt/nodejs/bin/npm /usr/bin/npm
 export HOME=/root
 git config --global credential.helper gcloud.sh
 # git clone https://source.developers.google.com/p/${PROJECTID}/r/${REPOSITORY} /opt/app
-git clone https://github.com/klawdyo/basic-server.git  /opt/app
+sudo git clone https://github.com/klawdyo/basic-server.git  /opt/app
 
 
 # Install app dependencies
-cd /opt/app/gce
+cd /opt/app
 npm install
 
 # Create a nodeapp user. The application will run as this user.

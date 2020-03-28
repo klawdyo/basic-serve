@@ -6,3 +6,6 @@ gcloud compute firewall-rules create default-allow-http-80 --allow tcp:80 --sour
 
 # Pegar o nome da instancia
 gcloud compute instances describe my-app-instance  --format='get(hostname)'
+
+# Dar um script de inicialização ao um arquivo que já existe
+gcloud compute instances add-metadata my-app-instance --metadata-from-file startup-script=./startup-script.sh
